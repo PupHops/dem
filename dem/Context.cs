@@ -79,11 +79,7 @@ namespace dem
                StatusTicketId = 1 // Assuming a status with Id 1 exists
            });
 
-            //Tickets.AddRange(
-            //    new Ticket()
-            //    {
 
-            //    });
 
             SaveChanges();
 

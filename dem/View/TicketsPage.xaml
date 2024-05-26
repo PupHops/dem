@@ -7,8 +7,16 @@
         mc:Ignorable="d"
         Title="TicketsPage" Height="450" Width="800">
     <Grid>
-        <ItemsControl ItemsSource="{Binding Tickets}">
-
-        </ItemsControl>
+        <ListBox x:Name="TicketList">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Id}"></TextBlock>
+                        <TextBlock Text="{Binding ProblemDescription}"></TextBlock>
+                        <Button Content="Изменить" Click="EditButton_Click" Tag="{Binding Id}"></Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>            
+        </ListBox>
     </Grid>
 </Window>

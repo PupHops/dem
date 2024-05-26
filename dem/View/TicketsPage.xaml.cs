@@ -22,13 +22,22 @@ namespace dem.View
     /// </summary>
     public partial class TicketsPage : Window
     {
-        private ObservableCollection<Ticket> ListTickets;
 
         public TicketsPage()
         {
             InitializeComponent();
             Context context = new Context();
-            ListTickets = new(context.Tickets);
+            TicketList.ItemsSource = context.Tickets.ToList();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is int id)
+            {
+                // Открытие окна редактирования с передачей Id
+                EditTicket editWindow = new EditTicket(id);
+                editWindow.ShowDialog();
+            }
         }
     }
 }
